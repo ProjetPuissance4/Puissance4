@@ -49,26 +49,37 @@ public class FenetreAccueil extends JFrame {
 		j1 = new Joueur();
 		j2 = new Joueur();
 		
-		// Changement de police
-		titre.setFont(new Font("Elephant", Font.BOLD, 48));
-		joueur1.setFont(new Font("Elephant", Font.BOLD, 48));
-		joueur2.setFont(new Font("Elephant", Font.BOLD, 48));
-		nom1.setFont(new Font("Elephant", Font.BOLD, 48));
-		nom2.setFont(new Font("Elephant", Font.BOLD, 48));
-		coul1.setFont(new Font("Elephant", Font.BOLD, 48));
-		coul2.setFont(new Font("Elephant", Font.BOLD, 48));
-		
+		// Changement de police et de couleur
+		titre.setFont(new Font("Century Schoolbook", Font.BOLD, 48));
+		titre.setForeground(Color.white);
+		joueur1.setFont(new Font("Calibri", Font.BOLD, 48));
+		joueur1.setForeground(Color.white);
+		joueur2.setFont(new Font("Calibri", Font.BOLD, 48));
+		joueur2.setForeground(Color.white);
+		nom1.setFont(new Font("Calibri", Font.BOLD, 48));
+		nom1.setForeground(Color.white);
+		nom2.setFont(new Font("Calibri", Font.BOLD, 48));
+		nom2.setForeground(Color.white);
+		coul1.setFont(new Font("Calibri", Font.BOLD, 48));
+		coul1.setForeground(Color.white);
+		coul2.setFont(new Font("Calibri", Font.BOLD, 48));
+		coul2.setForeground(Color.white);
 		
 		//Création du panneau de gauche 
 		gauche = new JPanel();
 		GridLayout layoutgauche = new GridLayout(0,1);
 		JPanel p1 = new JPanel(new FlowLayout());
 		p2 = new JPanel(new FlowLayout());
+		entrernom1.setPreferredSize(new Dimension(200, 50));
+		entrernom1.setFont(new Font("Elephant", Font.BOLD, 30));
 		gauche.setLayout(layoutgauche);
 		gauche.add(joueur1);
 		p1.add(nom1);
 		p1.add(entrernom1);
 		p2.add(coul1);
+		p1.setBackground(Color.BLUE);
+		p2.setBackground(Color.BLUE);
+	
 		
 		//Affichage des 4 boutons 
 		for(int i =0; i<couleur1.length; i++){
@@ -77,10 +88,13 @@ public class FenetreAccueil extends JFrame {
 		}
 		gauche.add(p1);
 		gauche.add(p2);
+		gauche.setBackground(Color.BLUE);
 		
 		// Création du panneau de droite 
 		droite = new JPanel();
 		JPanel p3 = new JPanel(new FlowLayout());
+		entrernom2.setPreferredSize(new Dimension(200, 50));
+		entrernom2.setFont(new Font("Elephant", Font.BOLD, 30));
 		GridLayout layoutdroite = new GridLayout(0,1);
 		droite.setLayout(layoutdroite);
 		droite.add(joueur2);
@@ -88,10 +102,14 @@ public class FenetreAccueil extends JFrame {
 		p3.add(entrernom2);
 		droite.add(p3);
 		droite.add(p4);
+		p3.setBackground(Color.BLUE);
+		p4.setBackground(Color.BLUE);
+		droite.setBackground(Color.BLUE);
 		
 		//Création du panneau du haut 
 		haut = new JPanel();
 		haut.add(titre, BorderLayout.NORTH);
+		haut.setBackground(Color.BLUE);
 		
 		//Création du panneau du bas 
 		bas = new JPanel();
@@ -100,16 +118,25 @@ public class FenetreAccueil extends JFrame {
 		start.setFont(new Font("Elephant", Font.BOLD, 28));
 		start.addActionListener(new EcouteurStart(this)); 
 		bas.add(start);
+		bas.setBackground(Color.BLUE);
+		
+		//Création du panneau du milieu
+		JPanel centre = new JPanel(new FlowLayout());
+		centre.setBackground(Color.BLUE);
 		
 		//Ajout des panneaux
 		this.add(haut,BorderLayout.NORTH);
 		add(gauche, BorderLayout.WEST);
 		add(droite, BorderLayout.EAST);
 		add(bas, BorderLayout.SOUTH);
+		add(centre, BorderLayout.CENTER);
+		
+		
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		setVisible(true); 	
+		setVisible(true); 
+		this.setBackground(Color.BLUE);
 		
 	}
 	
@@ -165,22 +192,3 @@ public class FenetreAccueil extends JFrame {
 		return (j1.getNom().length() > 0 && j2.getNom().length() > 0 && j1.getPion().getCouleur().length() > 0 && j2.getPion().getCouleur().length() > 0);
 	}
 }
-	
-
-	
-	
-		
-	 
-	 
-	
-				
-		
-		
-	
-	
-	
-		
-
-
-		
-		
